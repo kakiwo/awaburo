@@ -1,0 +1,6 @@
+.content__title
+  新しい記事の作成
+= form_for @post do |f|
+  = f.text_field :title, class: 'new_post__title', placeholder: 'タイトル'
+  = f.text_area :content, class: 'new_post__text', placeholder: '本文'
+  = f.submit '投稿', class: 'new_post__btn'
