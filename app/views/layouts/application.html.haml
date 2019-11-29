@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Awaburo
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    / ファビコン
+    %link{:href => "/favicon.ico", :rel => "icon"}/
+    / スマホ用アイコン
+    %link{:href => "./apple-touch-icon.png", :rel => "apple-touch-icon", :sizes => "180x180"}/
+    / Windows用アイコン
+    %meta{:content => "{Awaburo}", :name => "application-name"}/
+    %meta{:content => "small.jpg", :name => "msapplication-square70x70logo"}/
+    %meta{:content => "medium.jpg", :name => "msapplication-square150x150logo"}/
+    %meta{:content => "wide.jpg", :name => "msapplication-wide310x150logo"}/
+    %meta{:content => "large.jpg", :name => "msapplication-square310x310logo"}/
+    %meta{:content => "#FAA500", :name => "msapplication-TileColor"}/
+  %body
+    %header.header
+      .header__title
+        = link_to "あわぶろ", root_path, class: "header__title--text"
+      .header__right
+        = link_to "新規投稿", new_post_path, class: "header__right--btn"
+    .contents
+      = yield
+
+
+
