@@ -6,31 +6,39 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    / ファビコン
-    %link{:href => "/favicon.ico", :rel => "icon"}/
-    / スマホ用アイコン
-    %link{:href => "./apple-touch-icon.png", :rel => "apple-touch-icon", :sizes => "180x180"}/
-    / Windows用アイコン
-    %meta{:content => "{Awaburo}", :name => "application-name"}/
-    %meta{:content => "small.jpg", :name => "msapplication-square70x70logo"}/
-    %meta{:content => "medium.jpg", :name => "msapplication-square150x150logo"}/
-    %meta{:content => "wide.jpg", :name => "msapplication-wide310x150logo"}/
-    %meta{:content => "large.jpg", :name => "msapplication-square310x310logo"}/
-    %meta{:content => "#FAA500", :name => "msapplication-TileColor"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
   %body
-    %header.header
-      .header__title
-        = link_to "あわぶろ", root_path, class: "header__title--text"
-      .header__right
-        - if user_signed_in? 
-          = link_to current_user.nickname, user_path(current_user), class: "header__right--btn"
-          = link_to "新規投稿", new_post_path, class: "header__right--btn"
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
-        - else
-          = link_to "ログイン", new_user_session_path, class: "header__right--btn"
-          = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
-    .contents
-      = yield
-
-
-
+    .skinBody
+      .skinBody2
+        .divskinBody3
+          .skinFrame
+            %script{:src => "script.js"}
+            %header.header
+              .header__title
+                = link_to "あわぶろ", root_path, class: "header__title--text hover9"
+              .header__right
+                - if user_signed_in? 
+                  = link_to current_user.nickname, user_path(current_user), class: "header__right--btn hover9"
+                  = link_to "新規投稿", new_post_path, class: "header__right--btn hover9"
+                  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn hover9"
+                - else
+                  = link_to "ログイン", new_user_session_path, class: "header__right--btn hover9"
+                  = link_to "新規登録", new_user_registration_path, class: "header__right--btn hover9"
+            .contents
+              = yield
+              :javascript
+                $(function() {
+                    var   bgsc1 = 0;
+                    var   bgsc2 = 0;
+                    var   bgsc3 = 0;
+                    var   bgsc4 = 0;
+                  setInterval(function() {
+                      bgsc1 +=  0;
+                      bgsc2 += -2;
+                      bgsc3 += -5;
+                      bgsc4 += -7;
+                      $(".skinBody2").css("background-position", bgsc1 + "px " + bgsc2 + "px");
+                      $(".skinBody3").css("background-position", bgsc1 + "px " + bgsc3 + "px");
+                      $(".skinFrame").css("background-position", bgsc1 + "px " + bgsc4 + "px");
+                  });
+                });

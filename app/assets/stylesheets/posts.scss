@@ -1,11 +1,9 @@
 body{
-  background-color: lightblue;
   min-width: 650px;
   .header{
     height: 56px;
     width: 100%;
     padding: 0 150px;
-    background-color:blue;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -28,30 +26,26 @@ body{
   }
   .contents{
     margin: 30px auto 0;
-    // background-color: #fff;
-    height: 600px;
+    height: 855px;
     width: 70%;
     overflow: scroll;
     .content{
-      padding: 10px;
-      border-bottom: 1px solid blue;
+      margin-bottom: 40px;
+      padding: 80px;
       display: flex;
+        border: outset 10px #4689FF ;
       &__left{
         padding-right: 20px;
-        &--image{
-          height: 55px;
-          width: 55px;
-          border: solid 1px;
-        }
       }
       &__right{
         width: calc(100%-100px);
         &__top{
+          padding-bottom: 20px;
           font-size: 20px;
           font-weight: bold;
           &--title{
             text-decoration: none;
-            color: #000000;
+            color: #DDFFFF;
           }
         }
         &__bottom{
@@ -61,11 +55,12 @@ body{
           &--userName{
             &--btn{
               text-decoration: none;
-              color: #999;
+              color: #DDFFFF;
             }
           }
           &--date{
             margin-left: 20px;
+            color: #DDFFFF;
           }
         }
       }
@@ -84,12 +79,12 @@ body{
     }
     .postDate{
       font-size: 15px;
-      color: #999;
+      color: #DDFFFF;
       text-align: center;
     }
     .postAuthor{
       font-size: 15px;
-      color: #999;
+      color: #DDFFFF;
       text-align: center;
     }
     .postManage{
@@ -100,7 +95,7 @@ body{
         display: block;
         border-radius: 5px;
         color: #ffffff;
-        background-color:#55c500;
+        background-color:blue;
         padding: 0 10px;
         text-decoration: none;
         margin-right: 10px;
@@ -109,7 +104,7 @@ body{
         display: block;
         border-radius: 5px;
         color: #ffffff;
-        background-color:#55c500;
+        background-color:blue;
         padding: 0 10px;
         text-decoration: none;
         margin-left: 10px;
@@ -144,4 +139,49 @@ body{
   .user{
     padding: 15px 30px;
   }
+}
+
+// --------------------------------------------//
+// jquery animetion//
+// --------------------------------------------//
+.skinBody{
+  background-color: #4689FF;
+}
+.skinBody2{
+  background:url(aw1.png) repeat 0 0;
+}
+.skinBody3{
+  background:url(aw2.png) repeat 0 0;
+}
+.skinFrame{
+  background:url(aw3.png) repeat 0 0;
+}
+
+// --------------------------------------------//
+// hover action//
+// --------------------------------------------//
+.hover9 {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #DDFFFF;
+}
+.hover9::after {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: blue;
+  transition: all 0.3s ease 0s;
+  color: #DDFFFF;
+}
+.hover9:hover {
+  cursor: pointer;
+  color: #DDFFFF;
+}
+.hover9:hover::after {
+  width: 100%;
+  color: #DDFFFF;
 }
