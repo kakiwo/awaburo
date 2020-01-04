@@ -1,2 +1,14 @@
-- @posts.each do |post|
-  = render partial: "post", locals: { post: post }
+%header.header
+  .header__title
+    = link_to "あわぶろ", root_path, class: "header__title--text hover9"
+  .header__right
+    - if user_signed_in? 
+      = link_to current_user.nickname, user_path(current_user), class: "header__right--btn hover9"
+      = link_to "新規投稿", new_post_path, class: "header__right--btn hover9"
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn hover9"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "header__right--btn hover9"
+      = link_to "新規登録", new_user_registration_path, class: "header__right--btn hover9"
+.contents
+  - @posts.each do |post|
+    = render partial: "post", locals: { post: post }
